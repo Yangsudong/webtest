@@ -26,7 +26,7 @@ public class ExaminationDAO {
 		try {
 			conn = ConnectionManager.getConnnect();
 			String sql = " SELECT TEST_NO, ANSWER, CONTENT, SUBJECT_NO"
-					   + " FROM TEST"
+					   + " FROM JSP.TEST"
 					   + " WHERE TEST_NO = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, examinationVO.getTest_no());
