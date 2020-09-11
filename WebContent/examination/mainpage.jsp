@@ -8,9 +8,12 @@
 </head>
 <body>
 <h3>메인페이지 입니다.</h3>	
-<form action="examination/examinationSelect" method="post">
-	<div><input type="text" name="test_no" value ="${param.test_no}"></div>
-	<div><button type="button">문제풀기</button></div>
-</form>
+<button type="button" id="btnPage">문제풀기</button>
+<script>
+	btnPage.addEventListener("click",goPage);
+	function goPage() {
+		location.assign("testpage.jsp");
+	}
+</script>
 </body>
 </html>
