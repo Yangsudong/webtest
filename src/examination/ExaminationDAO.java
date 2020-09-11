@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 
 import common.ConnectionManager;
 
-
 public class ExaminationDAO {
 	Connection conn;
 	PreparedStatement pstmt;
@@ -50,6 +49,25 @@ public class ExaminationDAO {
 		return resultVO;
 	}
 	
+	public int count() {
+		int cnt = 0;
+		try {
+			conn = ConnectionManager.getConnnect();
+			String sql = "select count(test_no) from TEST";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				cnt = rs.getInt(1);
+				
+			}
+		
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			ConnectionManager.close(conn);
+		}
+		return cnt;
+	}	
 	
 	public void insert(ExaminationVO examinationVO) {
 		try {
@@ -77,6 +95,33 @@ public class ExaminationDAO {
 		}
 		
 	}
+	public void insertTest(ExaminationVO examinationVO) {
+		try {
+			//1.DB연결
+		 conn = ConnectionManager.getConnnect();
+		 
+			//2.sql 구문 실행
+			String sql = "INSERT INTO TEST (TEST_NO, ANSWER, CONTENT, SUBJECT_NO)" 
+						+ " VALUES (?,?,?,?)";
+			pstmt = conn.prepareStatement(sql); 
+			pstmt.setString(1, examinationVO.getTest_no());
+			pstmt.setString(2, examinationVO.getAnswer());
+			pstmt.setString(3, examinationVO.getContent());
+			pstmt.setString(4, examinationVO.getSubject_no());
+			int r = pstmt.executeUpdate();
+			
+			//3.결과처리
+			System.out.println(r + "건이 처리됨");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			//4.연결해제
+			ConnectionManager.close(null, pstmt, conn);
+		}
+		
+	}
+	
 	
 	public void update(ExaminationVO examinationVO) {
 		try {
