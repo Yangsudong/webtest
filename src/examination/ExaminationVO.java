@@ -9,11 +9,29 @@ public class ExaminationVO {
 	private String explan_no;
 	private String explan_answer;
 	private String answer_check;
+	private Integer first;
+	private Integer last;
+	
+	public Integer getFirst() {
+		return first;
+	}
+
+	public void setFirst(Integer first) {
+		this.first = first;
+	}
+
+	public Integer getLast() {
+		return last;
+	}
+
+	public void setLast(Integer last) {
+		this.last = last;
+	}
 	
 	public ExaminationVO() {}
 	
 	public ExaminationVO(String subject_no, String subject_name, String test_no, String answer, String content,
-			String explan_no, String explan_answer, String answer_check) {
+			String explan_no, String explan_answer, String answer_check, Integer first, Integer last) {
 		super();
 		this.subject_no = subject_no;
 		this.subject_name = subject_name;
@@ -23,6 +41,8 @@ public class ExaminationVO {
 		this.explan_no = explan_no;
 		this.explan_answer = explan_answer;
 		this.answer_check = answer_check;
+		this.first = first;
+		this.last = last;
 	}
 
 	public String getSubject_no() {
