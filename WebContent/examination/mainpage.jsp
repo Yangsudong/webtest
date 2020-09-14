@@ -13,46 +13,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<%@include file="/examination/header.jsp" %>
 
-<header class="header-area">    
-        <div class="clever-main-menu">
-            <div class="classy-nav-container breakpoint-off">
-                <!-- Menu -->
-                <nav class="classy-navbar justify-content-between" id="cleverNav">
-                    <!-- Logo -->
-                    <a class="nav-brand" href="mainpage.jsp">HOME</a>
-                    <!-- Menu -->
-                    <div class="classy-menu">
-                        <!-- Close Button -->
-                        <div class="classycloseIcon">
-                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                        </div>
-                        <!-- Nav Start -->
-                        <div class="classynav">
-                            <ul>
-                                <li><a href="mainpage.jsp">Home</a></li>                              
-                                <li><a href="/webtest/examination/testInsert">ExamInsert</a></li>  
-                                <li><a href="/webtest/examination/examAll">ExamList</a></li>                             
-                            </ul>
-                            <!-- Search Button -->
-                            <div class="search-area">
-                                <form action="#" method="post">
-                                    <input type="search" name="search" id="search" placeholder="Search">
-                                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                </form>
-                            </div>
-                            <!-- Register / Login -->
-                            <div class="register-login-area">
-                                <a href="#" class="btn">Register</a>
-                                <a href="index-login.html" class="btn active">Login</a>
-                            </div>
-                        </div>
-                        <!-- Nav End -->
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
     <div class="breadcumb-area">    
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -118,7 +80,7 @@
                 </div>
                 <!-- Single Cool Facts Area -->
                 <div class="col-12 col-sm-6 col-lg-3">
-                <a href="/webtest/examination/examSearch?test_no=31&subject_no=3">
+                <a href="/webtest/examination/examSearch?test_no=31&subject_no=4">
                     <div class="single-cool-facts-area text-center mb-100 wow fadeInUp" data-wow-delay="250ms">
                         <h2><span class="classynav">STEP4</span></h2>
                         <h5>서버 프로그램 <br>구현</h5>
@@ -127,7 +89,7 @@
                 </div>
                 <!-- Single Cool Facts Area -->
                 <div class="col-12 col-sm-6 col-lg-3">
-                <a href="/webtest/examination/examSearch?test_no=41&subject_no=4">
+                <a href="/webtest/examination/examSearch?test_no=41&subject_no=5">
                     <div class="single-cool-facts-area text-center mb-100 wow fadeInUp" data-wow-delay="250ms">
                         <h2><span class="classynav">STEP5</span></h2>
                         <h5>인터페이스<br>구현</h5>

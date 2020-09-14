@@ -42,6 +42,7 @@ public class SubjectDAO {
 			return list;
 		}
 		
+		//과목단건조회
 		public ExaminationVO selectSubOne(ExaminationVO examinationVO) {
 			ExaminationVO resultVO = null;
 			try {

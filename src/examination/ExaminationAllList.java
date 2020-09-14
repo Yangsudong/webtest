@@ -28,7 +28,7 @@ public class ExaminationAllList extends HttpServlet {
 			ExaminationDAO dao = new ExaminationDAO();
 			
 			Paging paging = new Paging();
-			paging.setPageUnit(5);
+			paging.setPageUnit(10);
 			paging.setPageSize(5);
 			paging.setPage(page);
 			

@@ -53,6 +53,12 @@
 	}
 </style>
 <script>
+function btnDelete(test_no) {
+	location.href="/webtest/examination/testDelete?test_no="+ test_no;
+}
+function btnUpdate(test_no) {
+	location.href="/webtest/examination/updateTest?test_no="+ test_no;
+}
 (function(){
     'use strict';
 	var $ = jQuery;
@@ -100,7 +106,7 @@ $(function(){
 			$panel.find('.panel-body input').focus();
 		}
 	});
-	$('[data-toggle="tooltip"]').tooltip();
+	//$('[data-toggle="tooltip"]').tooltip();
 })
 </script>
 <script>
@@ -113,45 +119,7 @@ $(function(){
 
 </head>
 <body>
-<header class="header-area">    
-        <div class="clever-main-menu">
-            <div class="classy-nav-container breakpoint-off">
-                <!-- Menu -->
-                <nav class="classy-navbar justify-content-between" id="cleverNav">
-                    <!-- Logo -->
-                    <a class="nav-brand" href="mainpage.jsp">HOME</a>
-                    <!-- Menu -->
-                    <div class="classy-menu">
-                        <!-- Close Button -->
-                        <div class="classycloseIcon">
-                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                        </div>
-                        <!-- Nav Start -->
-                        <div class="classynav">
-                            <ul>
-                                <li><a href="mainpage.jsp">Home</a></li>                              
-                                <li><a href="/webtest/examination/testInsert">ExamInsert</a></li> 
-                                <li><a href="/webtest/examination/examAll">ExamList</a></li>                              
-                            </ul>
-                            <!-- Search Button -->
-                            <div class="search-area">
-                                <form action="#" method="post">
-                                    <input type="search" name="search" id="search" placeholder="Search">
-                                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                </form>
-                            </div>
-                            <!-- Register / Login -->
-                            <div class="register-login-area">
-                                <a href="#" class="btn">Register</a>
-                                <a href="index-login.html" class="btn active">Login</a>
-                            </div>
-                        </div>
-                        <!-- Nav End -->
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
+<%@include file="/examination/header.jsp" %>
      <div class="breadcumb-area">    
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -179,8 +147,8 @@ $(function(){
                         <li><a href="/webtest/examination/examAll">Reset</a></li>  
                     </ul>
                 </div>
-			<div class="col-md-20">
-				<div class="panel panel-primary">
+			<div class="col-md-20 col-12">
+				<div class="panel panel-primary" >
 					<div class="panel-heading">
 						<h3 class="panel-title">Exam</h3>
 						<div class="pull-right">
@@ -204,27 +172,27 @@ $(function(){
 								<th>문제</th>
 								<th width="15%">과목명</th>
 								<th width="10%">과목번호</th>
+								<th width="10%">삭제</th>
+								<th width="10%">수정</th>
 							</tr>
 						</thead>
-						<tbody>						
-							<% 
-							ArrayList<ExaminationVO> list = (ArrayList<ExaminationVO>)request.getAttribute("list");
-								for(ExaminationVO exam : list) {
-							%>
+						<tbody>		
+							<c:forEach items="${list}" var="exam">				
 								<tr>
-									<td><%=exam.getTest_no()%></td>
-									<td><%=exam.getAnswer()%></td>
-									<td><%=exam.getContent()%></td>
-									<td><%=exam.getSubject_name() %></td>
-									<td><%=exam.getSubject_no() %></td>
+									<td>${exam.test_no}</td>
+									<td>${exam.answer}</td>
+									<td>${exam.content}</td>
+									<td>${exam.subject_name}</td>
+									<td>${exam.subject_no}</td>
+									<td><button type="button" class="btn btn-outline-primary" onclick="btnDelete(${exam.test_no})">삭제</button></td>
+									<td><button type="button" class="btn btn-outline-primary" onclick="btnUpdate(${exam.test_no})">수정</button></td>
 								</tr>
-							<% } %>
-							
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>
 			</div>
-					<p><my:paging paging="${paging}" jsfunc="gopage" /></p>
+			<p><my:paging paging="${paging}" jsfunc="gopage" /></p>
 		</div>
 	</div>
 

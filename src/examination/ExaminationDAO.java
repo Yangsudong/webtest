@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import common.ConnectionManager;
 
 public class ExaminationDAO {
@@ -209,6 +210,42 @@ public class ExaminationDAO {
 			pstmt.setString(3, examinationVO.getExplan_no());
 			int r = pstmt.executeUpdate();
 			System.out.println(r + "건이 수정됨");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			ConnectionManager.close(conn);
+		}
+		
+	}
+	
+	public void delete(ExaminationVO examinationVO) {
+		try {
+			conn = ConnectionManager.getConnnect();
+			String sql = "DELETE FROM TEST WHERE TEST_NO = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, examinationVO.getTest_no());
+			int r = pstmt.executeUpdate();
+			System.out.println(r + "건이 삭제됨");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			ConnectionManager.close(conn);
+		}
+		
+	}
+	
+	public void updateTest(ExaminationVO examinationVO) {
+		try {
+			conn = ConnectionManager.getConnnect();
+			String sql = "UPDATE TEST SET TEST_NO = ?,ANSWER = ?, content = ?, subject_no = ? WHERE TEST_NO = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, examinationVO.getTest_no());
+			pstmt.setString(2, examinationVO.getAnswer());
+			pstmt.setString(3, examinationVO.getContent());
+			pstmt.setString(4, examinationVO.getSubject_no());
+			pstmt.setString(5, examinationVO.getTest_no());
+			int r = pstmt.executeUpdate();
+			System.out.println(r + "건이 입력됨");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

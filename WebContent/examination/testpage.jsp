@@ -16,45 +16,7 @@
 
 </head>
 <body>
-<header class="header-area">    
-        <div class="clever-main-menu">
-            <div class="classy-nav-container breakpoint-off">
-                <!-- Menu -->
-                <nav class="classy-navbar justify-content-between" id="cleverNav">
-                    <!-- Logo -->
-                    <a class="nav-brand" href="mainpage.jsp">HOME</a>
-                    <!-- Menu -->
-                    <div class="classy-menu">
-                        <!-- Close Button -->
-                        <div class="classycloseIcon">
-                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                        </div>
-                        <!-- Nav Start -->
-                        <div class="classynav">
-                            <ul>
-                                <li><a href="mainpage.jsp">Home</a></li>                              
-                                <li><a href="/webtest/examination/testInsert">ExamInsert</a></li>                               
-                                <li><a href="/webtest/examination/examAll">ExamList</a></li>
-                            </ul>
-                            <!-- Search Button -->
-                            <div class="search-area">
-                                <form action="#" method="post">
-                                    <input type="search" name="search" id="search" placeholder="Search">
-                                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                </form>
-                            </div>
-                            <!-- Register / Login -->
-                            <div class="register-login-area">
-                                <a href="#" class="btn">Register</a>
-                                <a href="index-login.html" class="btn active">Login</a>
-                            </div>
-                        </div>
-                        <!-- Nav End -->
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
+<%@include file="/examination/header.jsp" %>
     
     <div class="breadcumb-area">    
         <nav aria-label="breadcrumb">
