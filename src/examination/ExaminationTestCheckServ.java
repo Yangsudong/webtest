@@ -1,14 +1,18 @@
 package examination;
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 @WebServlet("/examination/examCheck")
 public class ExaminationTestCheckServ extends HttpServlet {
@@ -33,11 +37,10 @@ public class ExaminationTestCheckServ extends HttpServlet {
 		ExaminationVO exam = dao.selectOne(paramVO);
 		int count = dao.count();	
 		
-		
 		//값 비교
 		String check = "";
 		if(exam.getAnswer().equals(answer)){
-			check=" 정답입니다 ";
+			check=" 정답입니다";
 		} else {
 			check=" 오답입니다 ";
 		}

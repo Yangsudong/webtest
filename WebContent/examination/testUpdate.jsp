@@ -65,7 +65,7 @@ function inputCheck() {
 	                    <div class="blog-details-text">
 					   	<div class="classynav"  >
 					        <ul>         
-					            <li><a href="/webtest/examination/examAll">◀</a></li>  
+					            <li><a href="/webtest/examination/examAll">◀ back</a></li>  
 					        </ul>
 					    </div><br><br>
 	                    	<form action="updateTest" method="post" name="frm" id="frm" onsubmit="return inputCheck()">
@@ -83,7 +83,10 @@ function inputCheck() {
 									</c:forEach>	
 									</select>
 								</p>
-								<p><button class="btn btn-success">수정</button></p>
+								<p>
+									<button class="btn btn-success">수정</button> &nbsp;&nbsp;
+									<button type="reset" class="btn btn-success">초기화</button>
+								</p>
 	                        </form>
 	                    </div>
 	                </div>

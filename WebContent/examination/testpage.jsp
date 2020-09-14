@@ -17,7 +17,7 @@
 </head>
 <body>
 <%@include file="/examination/header.jsp" %>
-    
+    <div>aabb ${image.imageFile}</div>
     <div class="breadcumb-area">    
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">

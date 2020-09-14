@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +13,10 @@
     <title> &amp; main page</title>
     <link rel="icon" href="img/core-img/favicon.ico">
     <link rel="stylesheet" href="style.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script> 
+	
 </head>
 <body>
-
 <header class="header-area">    
         <div class="clever-main-menu">
             <div class="classy-nav-container breakpoint-off">
@@ -45,7 +48,7 @@
                             <!-- Register / Login -->
                             <div class="register-login-area">
                                 <a href="#" class="btn">Register</a>
-                                <a href="index-login.html" class="btn active">Login</a>
+                                <a href="login.jsp" class="btn active">Login</a>
                             </div>
                         </div>
                         <!-- Nav End -->

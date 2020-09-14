@@ -112,9 +112,7 @@ public class ExaminationDAO {
 				resultVO.setContent(rs.getString(3));
 				resultVO.setSubject_no (rs.getString(4));
 				
-			} else {
-				System.out.println("더이상 문제가 없습니다");
-			}
+			} 
 			
 		} catch(Exception e) {
 			e.printStackTrace();

@@ -54,10 +54,17 @@
 </style>
 <script>
 function btnDelete(test_no) {
-	location.href="/webtest/examination/testDelete?test_no="+ test_no;
+	if( confirm("정말 삭제 하시겠습니까?")) {
+		location.href="/webtest/examination/testDelete?test_no="+ test_no;
+		alert(test_no + "번 문제가 삭제되었습니다.");
+	} else {
+		alert("취소 되었습니다.");
+	}
 }
 function btnUpdate(test_no) {
-	location.href="/webtest/examination/updateTest?test_no="+ test_no;
+	if( confirm("수정페이지로 이동하시겠습니까?")) {
+		location.href="/webtest/examination/updateTest?test_no="+ test_no;
+	}
 }
 (function(){
     'use strict';
