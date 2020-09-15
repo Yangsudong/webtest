@@ -13,7 +13,6 @@
     <title> &amp; main page</title>
     <link rel="icon" href="img/core-img/favicon.ico">
     <link rel="stylesheet" href="style.css">
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script> 
 	
 </head>
 <body>

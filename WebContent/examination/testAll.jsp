@@ -1,15 +1,15 @@
- <%@page import="examination.ExaminationVO"%>
+<%@page import="examination.ExaminationVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,7 +38,6 @@
 	.clickable{
 	    cursor: pointer;   
 	}
-
 	.panel-heading div {
 		
 		margin-top: -18px;
@@ -99,11 +98,8 @@ function btnUpdate(test_no) {
 	});
 	$('[data-action="filter"]').filterTable();
 })(jQuery);
-
 $(function(){
-    // attach table filter plugin to inputs
-	$('[data-action="filter"]').filterTable();
-	
+	//$('[data-action="filter"]').filterTable();
 	$('.container').on('click', '.panel-heading span.filter', function(e){
 		var $this = $(this), 
 			$panel = $this.parents('.panel');
@@ -113,7 +109,6 @@ $(function(){
 			$panel.find('.panel-body input').focus();
 		}
 	});
-	//$('[data-toggle="tooltip"]').tooltip();
 })
 </script>
 <script>
