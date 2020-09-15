@@ -99,7 +99,7 @@ function btnUpdate(test_no) {
 	$('[data-action="filter"]').filterTable();
 })(jQuery);
 $(function(){
-	//$('[data-action="filter"]').filterTable();
+	$('[data-action="filter"]').filterTable();
 	$('.container').on('click', '.panel-heading span.filter', function(e){
 		var $this = $(this), 
 			$panel = $this.parents('.panel');
@@ -109,6 +109,7 @@ $(function(){
 			$panel.find('.panel-body input').focus();
 		}
 	});
+	$('[data-toggle="tooltip"]').tooltip();
 })
 </script>
 <script>
