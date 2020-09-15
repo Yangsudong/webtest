@@ -17,7 +17,6 @@
 </head>
 <body>
 <%@include file="/examination/header.jsp" %>
-    <div>aabb ${image.imageFile}</div>
     <div class="breadcumb-area">    
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -66,6 +65,7 @@
 						</form>
 					</c:if>
 				</div>
+				&nbsp;&nbsp;&nbsp;
 				<div class="col-5">
 					<c:if test="${param.test_no < count}">
 						<form action="examSearch">
