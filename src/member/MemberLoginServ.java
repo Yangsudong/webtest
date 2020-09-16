@@ -14,7 +14,8 @@ public class MemberLoginServ extends HttpServlet {
 	//logout
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().invalidate();
-		response.sendRedirect("../index.jsp");
+		response.sendRedirect("/webtest/examination/login.jsp");
+		System.out.println("로그아웃");
 	}
 	
 	//login
@@ -32,19 +33,22 @@ public class MemberLoginServ extends HttpServlet {
 		String page = "";
 		if(resultVO == null) {		//id가 없음
 			request.setAttribute("erromsg", "해당 ID가 없습니다.");
-			page = "login.jsp";
+			page = "/examination/login.jsp";
+			request.getRequestDispatcher(page).forward(request, response);
 		} else {
 			if(memberVO.getPass().equals(resultVO.getPass())) {		//로그인 성공
 				request.getSession().setAttribute("login", resultVO);
 				request.getSession().setAttribute("id", resultVO.getId());
-				page = "/examination/mainpage.jsp";
+				response.sendRedirect("/webtest/examination/mainpage.jsp"); 
 			} else {
-				page = "login.jsp";
+				request.setAttribute("errormsg", "패스워드 불일치");
+				page = "/examination/login.jsp";
+				request.getRequestDispatcher(page).forward(request, response);
 			}
 		}
 		
 		//4. 뷰페이지 이동(redierect, forward) 또는 뷰페이지 출력
-		request.getRequestDispatcher(page).forward(request, response);
+//		request.getRequestDispatcher(page).forward(request, response);
 	
 	}
 

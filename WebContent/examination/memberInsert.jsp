@@ -3,7 +3,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <title> &amp; insert page</title>
+
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <link rel="stylesheet" href="style.css">
 <title>Insert title here</title>
 <script>
 function inputCheck() {
@@ -42,51 +51,46 @@ function inputCheck() {
 </head>
 <body>
 <%@include file="/examination/header.jsp" %>
-<h3 class="page_title">회원등록</h3>
-<form method="post" name="frm" id="frm"
-	  action = "memberInsert"
-	  onsubmit="return inputCheck()">
-	<div class="regist">
-		<label>id</label><input type="text" name="id"><br>
-		<label>pass</label><input type="password" name="pass">
-	</div>			
-	<div>
-		<label> 성별</label> 
-		<input type="radio" name="gender" value=man checked>남자 
-    	<input type="radio" name="gender" value=woman>여자 
-    </div><br>
-    
-	<div>
-		<p><label>직업</label></p>
-		<select name="job" id="job">
-			<option value="" selected>선택</option>
-			<option value="devlope">개발자</option>
-			<option value="dba">관리자</option>
-			<option value="doctor">의사</option>
-			<option value="student">학생</option>	
-		</select>
-	</div><br>
-	<div>
-		<label>메일수신여부</label>	
-		<input type="checkbox" name="mailYN" value="y" checked>동의
-		<!-- <input type="checkbox" name="mailYN" value="n" >미동의 -->
-	</div><br>
-	<div>
-		<label for="hobby">취미</label>	
-		<input type="checkbox" name="hobby" value="read">독서
-		<input type="checkbox" name="hobby" value="game">게임
-		<input type="checkbox" name="hobby" value="ski">스키
-	</div><br>
-	<div>
-		<label> 가입동기</label><br>
-		<textarea id = "reason" name="reason"></textarea>
-	</div>
-	<div>
-	<button type="reset">초기화</button>
-	<button>등록</button>
-	</div>
-	
-	
-</form>
+	<div class="breadcumb-area">    
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            </ol>
+        </nav>
+    </div>
+     <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3" style="background-image: url(img/bg-img/bg2.jpg);">
+        <h3>Member Insert Page</h3>
+    </div>
+     <div class="breadcumb-area">    
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            </ol>
+        </nav>
+    </div>
+    <div class="blog-details-content section-padding-100">
+	        <div class="container">
+	            <div class="row justify-content-center">
+	                <div class="col-15 col-lg-15" >
+	                    <!-- Blog Details Text -->
+	                    <div class="blog-details-text">
+
+						<form method="post" name="frm" id="frm" action = "memberInsert" onsubmit="return inputCheck()">
+								<div class="regist">
+									<p>ID : <input type="text" name="id"><br></p>
+									<p>PW : <input type="password" name="pass"></p>
+								</div>			
+								<div>
+									<label>Gender</label> <br>
+									<input type="radio" name="gender" value=man checked>남자 
+							    	<input type="radio" name="gender" value=woman>여자 
+							    </div><br>
+								<p> 가입동기 <br><textarea rows="8" cols="70" id="reason" name="reason"></textarea></p>
+								<p><button type="reset" class="btn btn-success">초기화</button> &nbsp;&nbsp;
+								<button class="btn btn-success">등록</button></p>
+						</form>
+						</div>
+		 			</div>
+         		</div>
+    	 	</div>
+ 	</div>
 </body>
 </html>

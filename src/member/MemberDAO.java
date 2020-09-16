@@ -31,7 +31,7 @@ public class MemberDAO {
 		
 		try {
 			conn = ConnectionManager.getConnnect();
-			String sql = " SELECT ID, PASS, GENDER, JOB, MAILYN, REASON, HOBBY, REGDATE"
+			String sql = " SELECT ID, PASS, GENDER, REASON, REGDATE"
 					   + " FROM jsp.MEMBERS"
 					   + " ORDER BY ID ";
 			
@@ -43,11 +43,8 @@ public class MemberDAO {
 				resultVO.setId(rs.getString(1));
 				resultVO.setPass(rs.getString(2));
 				resultVO.setGender(rs.getString(3));
-				resultVO.setJob(rs.getString(4));
-				resultVO.setMailYN(rs.getString(5));
-				resultVO.setReason(rs.getString(6));
-				resultVO.setHobby(rs.getString(7));
-				resultVO.setRegdate(rs.getString(8));
+				resultVO.setReason(rs.getString(4));
+				resultVO.setRegdate(rs.getString(5));
 				list.add(resultVO);
 			} 
 			
@@ -66,7 +63,7 @@ public class MemberDAO {
 		
 		try {
 			conn = ConnectionManager.getConnnect();
-			String sql = " SELECT ID, PASS, GENDER, JOB, MAILYN, REASON, HOBBY, REGDATE"
+			String sql = " SELECT ID, PASS, GENDER, REASON, REGDATE"
 					   + " FROM jsp.MEMBERS"
 					   + " WHERE ID = ?";
 			pstmt = conn.prepareStatement(sql);
@@ -77,11 +74,8 @@ public class MemberDAO {
 				resultVO.setId(rs.getString(1));
 				resultVO.setPass(rs.getString(2));
 				resultVO.setGender(rs.getString(3));
-				resultVO.setJob(rs.getString(4));
-				resultVO.setMailYN(rs.getString(5));
-				resultVO.setReason(rs.getString(6));
-				resultVO.setHobby(rs.getString(7));
-				resultVO.setRegdate(rs.getString(8));
+				resultVO.setReason(rs.getString(4));
+				resultVO.setRegdate(rs.getString(5));
 				
 			} else {
 				System.out.println("아이디가 없습니다");
@@ -95,23 +89,6 @@ public class MemberDAO {
 		return resultVO;
 	}
 	
-	//메일수신회원수 :  select count(id) cnt from members where mailYn='y'; 
-	public int getMailynCnt() {
-		int cnt = 0;
-		try {
-			conn = ConnectionManager.getConnnect();
-			String sql = "SELECT COUNT(ID) CNT FROM jsp.MEMBERS WHERE MAILYN='Y'";
-			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery(sql);
-			rs.next();
-			cnt = rs.getInt(1);
-		} catch(Exception e) {
-			e.printStackTrace();
-		} finally {
-			ConnectionManager.close(conn);
-		}
-		return cnt;
-	}
 	
 	// 성별인원수 : select gender, count(id) cnt from members group by gender;
 	public List<HashMap<String, Object>> getGenderCnt() {
@@ -156,15 +133,12 @@ public class MemberDAO {
 	public void update(MemberVO memberVO) {
 		try {
 			conn = ConnectionManager.getConnnect();
-			String sql = "UPDATE jsp.MEMBERS SET PASS = ?,GENDER = ?, JOB = ?, MAILYN = ?,HOBBY = ?, REASON = ? WHERE ID = ?";
+			String sql = "UPDATE jsp.MEMBERS SET PASS = ?,GENDER = ?, REASON = ? WHERE ID = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, memberVO.getPass());
 			pstmt.setString(2, memberVO.getGender());
-			pstmt.setString(3, memberVO.getJob());
-			pstmt.setString(4, memberVO.getMailYN());
-			pstmt.setString(5, memberVO.getHobby());
-			pstmt.setString(6, memberVO.getReason());
-			pstmt.setString(7, memberVO.getId());
+			pstmt.setString(3, memberVO.getReason());
+			pstmt.setString(4, memberVO.getId());
 			int r = pstmt.executeUpdate();
 			System.out.println(r + "건이 입력됨");
 		} catch (Exception e) {
@@ -181,15 +155,12 @@ public class MemberDAO {
 		 conn = ConnectionManager.getConnnect();
 			
 			//2.sql 구문 실행
-			String sql = "INSERT INTO jsp.MEMBERS VALUES(?,?,?,?,?,?,?,sysdate)"; 
+			String sql = "INSERT INTO jsp.MEMBERS VALUES(?,?,?,?,sysdate)"; 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, memberVO.getId());
 			pstmt.setString(2, memberVO.getPass());	
 			pstmt.setString(3, memberVO.getGender());	
-			pstmt.setString(4, memberVO.getJob());	
-			pstmt.setString(5, memberVO.getMailYN());	
-			pstmt.setString(6, memberVO.getReason());	
-			pstmt.setString(7, memberVO.getHobby());
+			pstmt.setString(4, memberVO.getReason());	
 			int r = pstmt.executeUpdate();
 			
 			//3.결과처리

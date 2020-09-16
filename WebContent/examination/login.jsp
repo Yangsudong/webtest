@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<head>
 	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +18,35 @@
 	<link rel="stylesheet" type="text/css" href="login/vendor/daterangepicker/daterangepicker.css">
 	<link rel="stylesheet" type="text/css" href="login/css/util.css">
 	<link rel="stylesheet" type="text/css" href="login/css/main.css">
-</head>
+	
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script>
+$(function() {
+
+    $('#login-form-link').click(function(e) {
+		$("#login-form").delay(100).fadeIn(100);
+		$("#userRegister").delay(100).fadeIn(100);
+ 		$("#login2-form").fadeOut(100);
+		$('#login2-form-link').removeClass('active');
+ 		$("#user2Register").fadeOut(100);
+		$('#user2Register-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+	$('#login2-form-link').click(function(e) {
+		$("#login2-form").delay(100).fadeIn(100);
+		$("#user2Register").delay(100).fadeIn(100);
+ 		$("#login-form").fadeOut(100);
+		$('#login-form-link').removeClass('active');
+ 		$("#userRegister").fadeOut(100);
+		$('#userRegister-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+
+});
+
+</script>
 </head>
 <body>
 
@@ -32,8 +59,8 @@
 						Sign In
 					</span>
 				</div>
-
-				<form class="login100-form validate-form" method="post" name="frm" id="frm"	action = "login">
+				
+				<form class="login100-form validate-form" method="post" role="form" name="frm" id="frm"	action = "login">
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
 						<span class="label-input100">Username</span>
 						<input class="input100" type="text" name="id" placeholder="Enter username" id="id">

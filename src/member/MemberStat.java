@@ -17,7 +17,6 @@ public class MemberStat extends HttpServlet {
 		MemberDAO dao = new MemberDAO();
 		
 		// 결과 저장
-		request.setAttribute("mailCnt", dao.getMailynCnt());
 		request.setAttribute("genderCnt", dao.getGenderCnt());
 		
 		// 뷰페이지로 포워드

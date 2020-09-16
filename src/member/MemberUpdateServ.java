@@ -17,6 +17,16 @@ public class MemberUpdateServ extends HttpServlet {
        
 	//수정페이지로 이동
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		MemberVO paramVO = new MemberVO();
+		
+		String id = request.getParameter("id");
+		paramVO.setId(id);
+		
+		MemberDAO dao = new MemberDAO();
+		MemberVO member = dao.selectOne(paramVO);
+		
+		request.setAttribute("member", member);
+		
 		request.getRequestDispatcher("memberUpdate.jsp").forward(request, response);
 		
 	}
@@ -33,15 +43,7 @@ public class MemberUpdateServ extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		String strHobby = "";
-		String[] hobby = request.getParameterValues("hobby");
-		System.out.println(Arrays.toString(hobby));
-		if(hobby != null) {
-			for(String temp : hobby) {
-				strHobby += temp + "/";
-			}
-		}
-		memberVO.setHobby(strHobby);
+		
 		
 		MemberDAO dao = new MemberDAO();
 		dao.update(memberVO);

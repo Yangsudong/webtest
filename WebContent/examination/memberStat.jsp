@@ -10,6 +10,23 @@
 </head>
 <body>
 <%@include file="/examination/header.jsp" %>
+<div class="breadcumb-area">    
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            </ol>
+        </nav>
+    </div>
+    
+     <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3" style="background-image: url(img/bg-img/bg2.jpg);">
+        <h3>Member Status Page</h3>
+    </div>
+    
+     <div class="breadcumb-area">    
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            </ol>
+        </nav>
+    </div>
 <h3>회원통계</h3>
 <h5>남여 비율</h5>
 <% List<HashMap<String, Object>> list =

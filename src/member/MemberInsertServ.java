@@ -62,17 +62,6 @@ public class MemberInsertServ extends HttpServlet {
 			System.out.println(pnames.nextElement());
 		}
 		
-		//checkbox
-		System.out.println("===============values===============");
-		String strHobby = "";
-		String[] hobby = request.getParameterValues("hobby");
-		System.out.println(Arrays.toString(hobby));
-		if(hobby != null) {
-			for(String temp : hobby) {
-				strHobby += temp + "/";
-			}
-		}
-		memberVO.setHobby(strHobby);
 		
 		
 		//DB 등록처리
@@ -80,7 +69,7 @@ public class MemberInsertServ extends HttpServlet {
 		dao.insert(memberVO);
 		
 		//목록으로 이동
-		response.sendRedirect("memberSelectAll");
+		response.sendRedirect("mainpage.jsp");
 		
 	}
 

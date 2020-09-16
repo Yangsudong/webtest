@@ -1,5 +1,3 @@
-<%@page import="member.MemberVO"%>
-<%@page import="member.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core"%>
@@ -7,7 +5,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <title> &amp; Update page</title>
+
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <link rel="stylesheet" href="style.css">
+<title>update</title>
 <script>
 function inputCheck() {
 	//id, pw 필수입력체크
@@ -22,12 +29,7 @@ function inputCheck() {
 		return false;		
 	}	
 	
-	//job(select태그)
-	if(frm.job.value == "") {
-		alert("job 선택");
-		frm.job.focus();
-		return false;
-	}
+	
 	//radio, checkbox
 	var gender =
 		document.querySelectorAll("[name ='gender']:checked").length;
@@ -45,62 +47,57 @@ function inputCheck() {
 </head>
 <body>
 <%@include file="/examination/header.jsp" %>
-
-<h3 class="page_title">회원정보수정</h3>
-<form method="post" name="frm" id="frm"
-	  action = "memberUpdate"
-	  onsubmit="return inputCheck()">
-	  
-	<div>
-		<label>id</label><input type="text" name="id" value ="${login.id}"><br>
-		<label>pass</label><input type="password" name="pass" value ="${login.pass}">
-	</div>			
-	<div>
-		<label> 성별</label> 
-		<input type="radio" name="gender" value=man
-			<c:if test="${login.gender=='man'}">checked="checked"</c:if>
-			>남자 
-    	<input type="radio" name="gender" value=woman
-    		<c:if test="${login.gender=='woman'}">checked="checked"</c:if>
-    		>여자 
-    </div><br>
+<div class="breadcumb-area">    
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            </ol>
+        </nav>
+    </div>
     
-	<div>
-		<p><label>직업</label></p>
-		<select name="job" id="job">
-			<option value="">선택</option>
-			<option value="devlope">개발자</option>
-			<option value="dba">관리자</option>
-			<option value="doctor">의사</option>
-			<option value="student">학생</option>	
-		</select>
-	</div><br>
-	<div>
-		<label>메일수신여부</label>	
-		<input type="checkbox" name="mailYN" value ="y"
-		<c:if test="${login.mailYn=='y'}">checked="checked"</c:if>>동의
-		
-	</div><br>
-	<div>
-		<label for="hobby">취미</label>	
-		<input type="checkbox" name="hobby" value="read"
-		<c:if test="${login.hobby=='read'}">checked="checked"</c:if>>독서
-		<input type="checkbox" name="hobby" value="game"
-		<c:if test="${login.hobby=='game'}">checked="checked"</c:if>>게임
-		<input type="checkbox" name="hobby" value="ski"
-		<c:if test="${login.hobby=='ski'}">checked="checked"</c:if>>스키
-		
-	</div><br>
-	<div>
-		<label>가입동기</label><br>
-		<textarea id = "reason" name="reason">${sessionScope.login.reason}</textarea>
-	</div>
-	<div>
-	<button type="reset">초기화</button>
-	<button>등록</button>
-	</div>
-	
-	
-</form>
+     <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3" style="background-image: url(img/bg-img/bg2.jpg);">
+        <h3>Member Update Page</h3>
+    </div>
+    
+     <div class="breadcumb-area">    
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            </ol>
+        </nav>
+    </div>
+    
+    <div class="blog-details-content section-padding-100">
+	 	<div class="container">
+	            <div class="row justify-content-center">
+	                <div class="col-15 col-lg-15">
+	                    <!-- Blog Details Text -->
+	                    <div class="blog-details-text">
+					   	<div class="classynav"  >
+					        <ul>         
+					            <li><a href="/webtest/examination/memberSelectAll">◀ back</a></li>  
+					        </ul>
+					    </div><br><br>
+	                    	<form method="post" name="frm" id="frm" action = "memberUpdate" onsubmit="return inputCheck()">
+		                        <p>ID : <input type="text" name="test_no" value="${member.id}" disabled></p>
+		                        <p>PW : <input type="text" name="test_no" value="${member.pass}"></p>
+		                        <div>
+									<label>Gender</label><br> 
+									<input type="radio" name="gender" value=man
+										<c:if test="${member.gender=='man'}">checked="checked"</c:if>
+										>남자 
+							    	<input type="radio" name="gender" value=woman
+							    		<c:if test="${member.gender=='woman'}">checked="checked"</c:if>
+							    		>여자 
+							    </div><br>
+		                        <p>가입동기 <br> <textarea rows="8" cols="70" name="content">${exam.content}</textarea>
+								<p>
+									<button class="btn btn-success">수정</button> &nbsp;&nbsp;
+									<button type="reset" class="btn btn-success">초기화</button>
+								</p>
+	                        </form>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+        </div>
 </body>
 </html>
