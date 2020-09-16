@@ -128,7 +128,7 @@ $(function(){
     </div>
     
     <div class="container section-padding-100"  >
-    <h1>Exam List <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1>
+    <h1>Member List <small>(<i class="glyphicon glyphicon-filter"></i>)</small></h1>
     	<div class="row">
 				<div class="classynav">
                     <ul>                                                    
