@@ -61,7 +61,7 @@ function inputCheck() {
      <div class="blog-details-content section-padding-100">
 	        <div class="container">
 	            <div class="row justify-content-center">
-	                <div class="col-15 col-lg-15">
+	                <div class="col-15 col-lg-15" >
 	                    <!-- Blog Details Text -->
 	                    <div class="blog-details-text">
 	                    	<form action="testInsert" method="post" name="frm" id="frm" onsubmit="return inputCheck()">

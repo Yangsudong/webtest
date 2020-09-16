@@ -46,9 +46,15 @@
                             </div>
                             <!-- Register / Login -->
                             <div class="register-login-area">
-                                <a href="#" class="btn">Register</a>
-                                <a href="login.jsp" class="btn active">Login</a>
+                                <c:if test="${not empty sessionScope.id}">
+	                                ${sessionScope.id}님  
+	                                <a href="mainpage.jsp" class="btn active">Logout</a>
+                                </c:if>
+	                            <c:if test="${ empty sessionScope.id}">   
+	                                <a href="$login.jsp" class="btn active">Login</a>
+                                </c:if>
                             </div>
+                            
                         </div>
                         <!-- Nav End -->
                     </div>
