@@ -27,21 +27,20 @@ public class ExaminationTestStartServ extends HttpServlet {
 		paramVO.setTest_no(test_no);
 		
 		//과목정보
-		ArrayList<HashMap<String, String>> subjectlist = SubjectDAO.getInstance().subjectAll();		
-		request.setAttribute("subjectlist", subjectlist);
-		String subject_name = request.getParameter("subject_name");
-		paramVO.setSubject_name(subject_name);
+		SubjectDAO subdao = new SubjectDAO();
+		ExaminationVO sub = subdao.selectSubOne(paramVO);
+		
 		
 		//단건조회
 		ExaminationDAO dao = new ExaminationDAO();
 		ExaminationVO exam = dao.selectOne(paramVO);
+		
 		int count = dao.count();	
+		
+		// 조회결과 request 저장		
 		request.setAttribute("count", count);
-		
-		// 조회결과 request 저장
-		
 		request.setAttribute("exam",exam);
-	
+		request.setAttribute("sub",sub);
 		
 		// view 페이지로 이동(포워드)
 		request.getRequestDispatcher("testpage.jsp").forward(request, response);

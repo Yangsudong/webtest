@@ -72,4 +72,35 @@ public class SubjectDAO {
 			}
 			return resultVO;
 		}
+		
+		//과목단건조회
+		public ExaminationVO selectSubName(ExaminationVO examinationVO) {
+			ExaminationVO resultVO = null;
+			try {
+				conn = ConnectionManager.getConnnect();
+				String sql = " SELECT s.SUBJECT_NO, s.SUBJECT_NAME , t.TEST_NO, t.ANSWER"
+						+" FROM jsp.SUBJECT s , jsp.TEST t"
+						+" WHERE t.subject_no = S.SUBJECT_NO "
+						+" AND t.answer = ? ";
+				
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, examinationVO.getAnswer());
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					resultVO = new ExaminationVO();
+					resultVO.setSubject_no(rs.getString(1));
+					resultVO.setSubject_name(rs.getString(2));
+					resultVO.setTest_no(rs.getString(3));
+					
+				} else {
+					System.out.println("없는 문제");
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				ConnectionManager.close(rs, pstmt, conn);
+			}
+			return resultVO;
+		}
 }

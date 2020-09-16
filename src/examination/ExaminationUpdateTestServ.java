@@ -25,7 +25,6 @@ public class ExaminationUpdateTestServ extends HttpServlet {
 		paramVO.setTest_no(test_no);
 		
 		ExaminationDAO dao = new ExaminationDAO();
-		SubjectDAO subdao = new SubjectDAO();
 		int count = dao.count();
 		
 		//과목정보

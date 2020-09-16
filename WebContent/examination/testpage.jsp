@@ -38,6 +38,7 @@
      <section class="popular-courses-area section-padding-100">
 	<div class="container">		
 		<form action="examCheck">	
+	    <h4>${sub.subject_no}과목 _${sub.subject_name}</h4>
 			<div class="alert alert-info" role="alert"><h5>문제</h5>${exam.content}</div>
 			<div class="col-xl-4 col-md-6  col-sm-12">
 				<div class="form-group row">
@@ -52,7 +53,7 @@
 					<div class="col-7">
 						<h4><span class="badge badge-secondary">${check}</span></h4>
 					</div>
-				</div>
+				</div>	
 			</div>
 		</form>
 		<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
