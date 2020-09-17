@@ -1,7 +1,6 @@
 package member;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +17,6 @@ public class MemberUpdateServ extends HttpServlet {
 	//수정페이지로 이동
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberVO paramVO = new MemberVO();
-		
 		String id = request.getParameter("id");
 		paramVO.setId(id);
 		

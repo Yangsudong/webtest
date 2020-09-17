@@ -7,15 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet({"/examination/login", "/examination/logout"})
+@WebServlet({"/examination/login"})
 public class MemberLoginServ extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	//logout
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getSession().invalidate();
-		response.sendRedirect("/webtest/examination/login.jsp");
-		System.out.println("로그아웃");
+		request.getRequestDispatcher("/examination/login.jsp").forward(request, response);;
 	}
 	
 	//login

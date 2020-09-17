@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<%@include file="/examination/header.jsp" %>
+<jsp:include page="/examination/header.jsp"/>
 
     <div class="breadcumb-area">    
         <nav aria-label="breadcrumb">

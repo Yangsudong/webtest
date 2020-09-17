@@ -65,7 +65,7 @@ function inputCheck() {
 	                    <!-- Blog Details Text -->
 	                    <div class="blog-details-text">
 	                    	<form action="testInsert" method="post" name="frm" id="frm" onsubmit="return inputCheck()">
-		                        <p>Exam Number : <input type="text" name="test_no"></p>
+		                        <p>Exam Number : <input type="text" name="test_no" value="${count+1}"></p>
 		                        <p>Last Number : ${count} </p>
 		                        <p>Exam Content <br> <textarea rows="8" cols="70" name="content"></textarea>
 		                        <p>Answer : <input type="text" name="answer"></p>

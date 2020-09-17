@@ -147,9 +147,8 @@ $(function(){
 					</div>
 					<div class="panel-body">
 					<form name="searchFrm">
-						<input type="hidden" name="p" value="1">
 						<input type="text" name="answer" value="${parm.id}" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Search Answer" />
-					</from>
+					</form>
 					</div>
 					
 					<table class="table table-hover" id="dev-table">
@@ -172,8 +171,8 @@ $(function(){
 									<td>${member.reason}</td>
 									<td>${member.gender}</td>
 									<td>${member.regdate}</td>
-									<td><button type="button" class="btn btn-outline-primary" onclick="btnMemDelete(${member.id})">삭제</button></td>
-									<td><button type="button" class="btn btn-outline-primary" onclick="btnMemUpdate(${member.id})">수정</button></td>
+									<td><button type="button" class="btn btn-outline-primary" onclick="btnMemDelete('${member.id}')">삭제</button></td>
+									<td><button type="button" class="btn btn-outline-primary" onclick="btnMemUpdate('${member.id}')">수정</button></td>
 								</tr>
 							</c:forEach>
 						</tbody>

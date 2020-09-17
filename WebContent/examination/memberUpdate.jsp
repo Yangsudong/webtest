@@ -77,8 +77,8 @@ function inputCheck() {
 					        </ul>
 					    </div><br><br>
 	                    	<form method="post" name="frm" id="frm" action = "memberUpdate" onsubmit="return inputCheck()">
-		                        <p>ID : <input type="text" name="test_no" value="${member.id}" disabled></p>
-		                        <p>PW : <input type="text" name="test_no" value="${member.pass}"></p>
+		                        <p>ID : <input type="text" name="id" value="${member.id}" disabled></p>
+		                        <p>PW : <input type="text" name="pass" value="${member.pass}"></p>
 		                        <div>
 									<label>Gender</label><br> 
 									<input type="radio" name="gender" value=man
@@ -88,7 +88,7 @@ function inputCheck() {
 							    		<c:if test="${member.gender=='woman'}">checked="checked"</c:if>
 							    		>여자 
 							    </div><br>
-		                        <p>가입동기 <br> <textarea rows="8" cols="70" name="content">${exam.content}</textarea>
+		                        <p>가입동기 <br> <textarea rows="8" cols="70" name="reason">${member.reason}</textarea>
 								<p>
 									<button class="btn btn-success">수정</button> &nbsp;&nbsp;
 									<button type="reset" class="btn btn-success">초기화</button>

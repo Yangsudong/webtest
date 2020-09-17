@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,31 +37,32 @@
                         <div class="classynav">
                             <ul>
                                 <li><a href="mainpage.jsp">Home</a></li>
+                                <c:if test="${not empty sessionScope.id && sessionScope.id == 'admin'}">
                                 <li><a href="/webtest/examination/testInsert">ExamInsert</a></li>  
                                 <li><a href="/webtest/examination/examAll">ExamList</a></li>   
                                 <li><a href="/webtest/examination/updateTest">ExamUpdate</a></li>
                                 <li><a href="/webtest/examination/memberSelectAll">MemberList</a></li>
                                 <li><a href="/webtest/examination/memberInsert">MemberInsert</a></li>                                
-                                <li><a href="/webtest/examination/memberUpdate">MemberUpdate</a></li>   
+                                <li><a href="/webtest/examination/memberUpdate">MemberUpdate</a></li>
+                                </c:if>   
                             </ul>
                             
                             <!-- Search Button -->
                             <div class="search-area">
-                                <form action="#" method="post">
+                                <form action="mainpage.jsp" method="post">
                                     <input type="search" name="search" id="search" placeholder="Search">
                                     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                 </form>
                             </div>
                             <!-- Register / Login -->
-                            <div class="register-login-area">
-                           		<a href="memberInsert.jsp" class="btn">Register</a>
-                           		
+                            <div class="register-login-area">	
                                 <c:if test="${not empty sessionScope.id}">
-	                                ${sessionScope.id}님  
+	                                 Connect Id :  ${sessionScope.id}
 	                                <a href="/webtest/examination/logout" class="btn active">Logout</a>
                                 </c:if>
                                 
 	                            <c:if test="${empty sessionScope.id}">   
+	                            	<a href="memberInsert.jsp" class="btn">Register</a>
 	                                <a href="/webtest/examination/login" class="btn active">Login</a>
                                 </c:if>
                             </div>
